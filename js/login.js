@@ -81,13 +81,13 @@
   	remove_loading($(this));
 
   	
-	console.log('submitted')
+	//console.log('submitted')
 		if(options['useAJAX'] == true)
 		{
-		console.log(this);
+		//console.log(this);
 			// Dummy AJAX request (Replace this with your AJAX code)
 		  // If you don't want to use AJAX, remove this
-  	  dummy_submit_form($(this));
+  	  	register_submit_form($(this));
 		
 		  // Cancel the normal submission.
 		  // If you don't want to use AJAX, remove this
@@ -150,15 +150,29 @@
 	// Dummy Submit Form (Remove this)
 	//----------------------------------------------
 	// This is just a dummy form submission. You should use your AJAX function or remove this function if you are not using AJAX.
-  function dummy_submit_form($form)
+	// This is just a dummy form submission. You should use your AJAX function or remove this function if you are not using AJAX.
+  function register_submit_form($form)
   {
   	if($form.valid())
   	{
   		form_loading($form);
-  		
+  		// Serialize the form data.
+		var formData = $($form).serialize();
+		console.log(formData);
+    	$.ajax({
+    	type: "POST",
+    	url: "register_submit.php",
+    	data: formData,
+    	success: function(data){
   		setTimeout(function() {
   			form_success($form);
   		}, 2000);
+      	
+      },
+      error: function (data) {
+        var msg = '';
+          alert('user exists!');
+    	}
+      });
   	}
   }
-	

@@ -3,10 +3,10 @@
  ?>
 
 <?php
-// define variables and set to empty values
+/*// define variables and set to empty values
 $firstErr = $lastErr = $emailErr = $selectErr = $quantityErr = $donateErr = $costErr = "";
 $first = $last = $email = $select = $quantity = $donate = $cost = "";
-$success = true;
+$success = true;*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   var_dump($_SESSION);
   $_POST = array();
 
-  header('Location: index.php');
+  //header('Location: index.php');
   exit();
   }
 
