@@ -90,6 +90,35 @@
 
 		$conn->close();
 	}
+
+	function usernameExists($username) {
+		// mysqli_report(MYSQLI_REPORT_ALL);
+		$conn = Connect();
+		$sql = "SELECT * FROM person WHERE username = ?";
+		$usernameExists = $conn->prepare($sql);
+		$usernameExists->bind_param("s", $username);
+		$usernameExists->execute();
+
+		if(!$usernameExists) {
+			trigger_error('Invalid query' . $conn->error);
+		} 
+
+
+		$usernameExists = $usernameExists->get_result();
+		if($usernameExists->num_rows > 0) {
+			http_response_code(403);
+			return http_response_code();
+		} else {
+			// Get the current response code and set a new one
+			http_response_code(200);
+			return http_response_code();
+		}
+
+		$conn->close();
+	}
+
+	echo usernameExists('madisonrogers');
+	echo usernameExists('maddie');
 ?>
 
 
