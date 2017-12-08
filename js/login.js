@@ -164,6 +164,7 @@
     	url: "register_submit.php",
     	data: formData,
     	success: function(data){
+    	alert(data);
   		setTimeout(function() {
   			form_success($form);
   		}, 2000);

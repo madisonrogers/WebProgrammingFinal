@@ -1,3 +1,4 @@
+
 <?php
 	require "connection.php";
 
@@ -60,6 +61,7 @@
 	}
 
 	function addPerson($full_name, $email, $username, $password) {
+		
 		$conn = Connect();
 		$sql = "INSERT INTO person (full_name, email, username, password) VALUES (?, ?, ?, ?)";
 		$addPerson = $conn->prepare($sql);
