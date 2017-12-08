@@ -40,13 +40,13 @@ if($conn->connect_errno){
     exit();
 }
 
-$result = $conn->query("SELECT username, title, article_text, time_created FROM article, person WHERE fk_person_id = person_id")
+$result = $conn->query("SELECT article_id, username, title, article_text, time_created FROM article, person WHERE fk_person_id = person_id")
         or trigger_error($conn->error);	
 		
 while ($row = $result->fetch_assoc()) {
 		  echo "<td>" . $row["username"] . "</td>";
 		  echo "<td>" . $row["title"] . "</td>";
-		  echo "<td>" . $row["article_text"] . "</td>";
+		  echo '<td><a href="article.php?id=' . $row["article_id"] . '&title=' . $row["title"] . '&text=' . $row["article_text"] . '">Click to read</a></td>';
 		  echo "<td>" . $row["time_created"] . "</td></tr>";
 	    }
 ?>
