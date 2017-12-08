@@ -1,7 +1,6 @@
 <?php 
   session_start();
  ?>
-
  <?php
  	require 'connection.php';
  	function validateUser($username, $password) {
@@ -28,15 +27,15 @@
 	}
 
 	 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	 $username = $_POST['reg_username'];
-	 $password = $_POST['reg_password'];
+	 $username = $_POST['lg_username'];
+	 $password = $_POST['lg_password'];
 	 // $email = $_POST['reg_email'];
 	 // $fullname = $_POST['reg_fullname'];
 	  
 	  $_SESSION['username'] = $username;
 	  $_SESSION['password'] = $password;
 	  // $_SESSION['email'] = $email;
-	  // $_SESSION['fullname'] = $fullname;
+	  // $_SESSION['fullname'] = $fullname
 
 	  //include $PATH;
 	  validateUser($username, $password);
