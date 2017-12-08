@@ -207,13 +207,13 @@
       url: "authenticate.php",
       data: formData,
       success: function(data){
-      //alert(data);
+      alert(data);
       setTimeout(function() {
         form_success($form);
       }, 2000);
       //console.log("Path: " + loc);
       //console.log("dir: " + dir);
-        window.location.href = dir + "/index.php";
+        //window.location.href = dir + "/index.php";
       },
       error: function (data) {
        // var msg = '';
@@ -225,4 +225,5 @@
       }
       });
     }
+  }
   

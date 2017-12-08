@@ -42,6 +42,6 @@
 	  validateUser($username, $password);
 	  var_dump($_SESSION);
 	  $_POST = array();
-
+	}
 
  ?>
