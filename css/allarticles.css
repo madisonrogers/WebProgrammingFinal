@@ -1,0 +1,9 @@
+.articlelist {
+	border: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.articlelist th, .articlelist td {
+	border: 1px solid black;
+}
