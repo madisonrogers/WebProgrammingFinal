@@ -60,6 +60,10 @@
 	}
 
 	function addPerson($full_name, $email, $username, $password) {
+		if(usernameExists($username) == 403) {
+			http_response_code(403);
+			return http_response_code();
+		}
 		$conn = Connect();
 		$sql = "INSERT INTO person (full_name, email, username, password) VALUES (?, ?, ?, ?)";
 		$addPerson = $conn->prepare($sql);
@@ -117,8 +121,8 @@
 		$conn->close();
 	}
 
-	echo usernameExists('madisonrogers');
-	echo usernameExists('maddie');
+	// echo usernameExists('madisonrogers');
+	// echo usernameExists('maddie');
 ?>
 
 
