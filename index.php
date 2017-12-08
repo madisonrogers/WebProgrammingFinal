@@ -36,7 +36,7 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 	<div class="logo">login</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
-		<form id="login-form" class="text-left" method="post" action="mailer.php">
+		<form id="login-form" class="text-left" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
