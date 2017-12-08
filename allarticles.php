@@ -17,7 +17,7 @@
 <body>
 
 <header style="text-align:center">
-<h1> All Articles</h1>
+<h1>All Articles</h1>
 </header>
 <hr>
 
