@@ -201,23 +201,25 @@
     var formData = $($form).serialize();
     var loc = window.location.pathname;
     var dir = loc.substring(0, loc.lastIndexOf('/'));
-    //console.log(formData);
+    console.log(formData);
       $.ajax({
       type: "POST",
       url: "authenticate.php",
       data: formData,
       success: function(data){
-      alert(data);
+      //alert(data);
       setTimeout(function() {
         form_success($form);
       }, 2000);
       //console.log("Path: " + loc);
       //console.log("dir: " + dir);
         //window.location.href = dir + "/index.php";
+        console.log(document.cookie);
+        window.location.href = dir + "/allarticles.php";
       },
       error: function (data) {
        // var msg = '';
-        //console.log(data);
+        console.log(data);
           //alert('user exists!' + data);
         setTimeout(function() {
         form_failed($form);
