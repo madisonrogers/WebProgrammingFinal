@@ -1,13 +1,12 @@
 <?php
 	require "connection.php";
 
-	function getUserByUsername($username) {
+	function getPersonByUsername($username) {
 		$conn = Connect();
 		$sql = "SELECT * FROM f17_madisonrogers.person WHERE username = ?";
 		$person = $conn->prepare($sql);
 		$person->bind_param("s", $username);
 		$person->execute();
-
 		if(!$person) {
 			trigger_error('Invalid query' . $conn->error);
 		}
@@ -18,6 +17,11 @@
 		}
 
 		$conn->close();
+	}
+
+	function getPersonIdByUsername($username) {
+		$user = getPersonByUsername($username);
+		return $user["person_id"];
 	}
 
 	function getArticlesByUsername($username) {
@@ -55,9 +59,38 @@
 		$conn->close();
 	}
 
-	echo var_dump(getArticlesByUsername("madisonrogers"));
+	function addPerson($full_name, $email, $username, $password) {
+		$conn = Connect();
+		$sql = "INSERT INTO person (full_name, email, username, password) VALUES (?, ?, ?, ?)";
+		$addPerson = $conn->prepare($sql);
+		$addPerson->bind_param("ssss", $full_name, $email, $username, $password);
+		$addPerson->execute();
 
-	// function addUser($full_name, $email, $username, $password) {
+		if(!$addPerson) {
+			trigger_error('Invalid query' . $conn->error);
+		} 
 
-	// }
+		$conn->close();
+	}
+
+	function addArticle($username, $title, $text) {
+		// mysqli_report(MYSQLI_REPORT_ALL);
+		$id = getPersonIdByUsername($username);
+		$conn = Connect();
+		$time_created = (string)date('m/d/Y h:i:s', time());
+		
+		$sql = "INSERT INTO article (fk_person_id, title, article_text, time_created) VALUES (?,?,?,?)";
+		$addArticle = $conn->prepare($sql);
+		$addArticle->bind_param("isss", $id, $title, $text, $time_created);
+		$addArticle->execute();
+
+		if(!$addArticle) {
+			trigger_error('Invalid query' . $conn->error);
+		} 
+
+		$conn->close();
+	}
 ?>
+
+
+
