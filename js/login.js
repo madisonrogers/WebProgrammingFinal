@@ -72,11 +72,19 @@
   });
 
   // Form Submission
-  $("#register-form").submit(function() {
+  $("#register-form").submit(function(e) {
+
+  	//alert($("#register-form").valid());
+  	e.preventDefault();
+  	//var isValid = $("#register-form").valid();
+
   	remove_loading($(this));
-		
+
+  	
+	console.log('submitted')
 		if(options['useAJAX'] == true)
 		{
+		console.log(this);
 			// Dummy AJAX request (Replace this with your AJAX code)
 		  // If you don't want to use AJAX, remove this
   	  dummy_submit_form($(this));
@@ -85,6 +93,7 @@
 		  // If you don't want to use AJAX, remove this
   	  return false;
 		}
+	
   });
 
 	// Forgot Password Form
@@ -100,7 +109,7 @@
 	// Form Submission
   $("#forgot-password-form").submit(function() {
   	remove_loading($(this));
-		
+	
 		if(options['useAJAX'] == true)
 		{
 			// Dummy AJAX request (Replace this with your AJAX code)
@@ -109,7 +118,7 @@
 		
 		  // Cancel the normal submission.
 		  // If you don't want to use AJAX, remove this
-  	  return false;
+  	  	return false;
 		}
   });
 

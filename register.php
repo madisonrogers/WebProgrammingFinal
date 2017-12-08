@@ -24,17 +24,20 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 
 //echo "User: $user, path: $root<br />\n";
 ?>
+
+
+
 <!-- REGISTRATION FORM -->
 <div class="text-center" style="padding:50px 0">
 	<div class="logo">register</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
-		<form id="register-form" class="text-left">
+		<form id="register-form" class="text-left" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
-						<label for="reg_username" class="sr-only">Email address</label>
+						<label for="reg_username" class="sr-only">Username</label>
 						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
 					</div>
 					<div class="form-group">
@@ -53,19 +56,6 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 					<div class="form-group">
 						<label for="reg_fullname" class="sr-only">Full Name</label>
 						<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-					</div>
-					
-					<div class="form-group login-group-checkbox">
-						<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-						<label for="male">male</label>
-						
-						<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-						<label for="female">female</label>
-					</div>
-					
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" class="" id="reg_agree" name="reg_agree">
-						<label for="reg_agree">i agree with <a href="#">terms</a></label>
 					</div>
 				</div>
 				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>

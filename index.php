@@ -1,3 +1,6 @@
+<?php 
+  session_start();
+ ?>
 <!DOCTYPE html5>
 <html>
 <head>
@@ -33,7 +36,7 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 	<div class="logo">login</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
-		<form id="login-form" class="text-left">
+		<form id="login-form" class="text-left" method="post" action="mailer.php">
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
