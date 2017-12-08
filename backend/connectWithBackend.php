@@ -124,8 +124,28 @@
 		$conn->close();
 	}
 
-	// echo usernameExists('madisonrogers');
-	// echo usernameExists('maddie');
+	function validateUser($username, $password) {
+		$conn = Connect();
+		$sql = "SELECT * FROM person WHERE username = ? AND password = ?";
+		$validateUser = $conn->prepare($sql);
+		$validateUser->bind_param("ss", $username, $password);
+		$validateUser->execute();
+
+		if(!$validateUser) {
+			trigger_error('Invalid query' . $conn->error);
+		} 
+
+		$validateUser = $validateUser->get_result();
+		if($validateUser->num_rows > 0) {
+			http_response_code(200);
+			return http_response_code();
+		} else {
+			http_response_code(403);
+			return http_response_code();
+		}
+
+		$conn->close();
+	}
 ?>
 
 
