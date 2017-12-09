@@ -45,7 +45,7 @@ $path = getcwd();
 list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 
 // $actual_link = "http://$_SERVER[HTTP_HOST]/" . $user . "/WebProgrammingFinal/index.php";
-header('Refresh: 3; index.php');
+header('Refresh: 4; index.php');
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>

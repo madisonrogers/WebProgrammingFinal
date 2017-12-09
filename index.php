@@ -28,6 +28,18 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 
 //echo "User: $user, path: $root<br />\n";
 ?>
+<div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <!--<li role="presentation"><a href="/">Dashboard</a></li>-->
+                 <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/forgot.php" ?>">Forgot Password</a></li>
+                <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/register.php" ?>">Register</a></li>
+                
+                
+            </ul>
+        </nav>
+        <h3 class="text-muted">Login</h3>
+    </div>
 <!-- Where all the magic happens -->
 <!-- LOGIN FORM -->
 

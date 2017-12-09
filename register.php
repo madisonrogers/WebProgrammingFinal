@@ -26,7 +26,18 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 ?>
 
 
-
+<div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <!--<li role="presentation"><a href="/">Dashboard</a></li>-->
+                <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/index.php" ?>">Login</a></li>
+                 <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/forgot.php" ?>">Forgot Password</a></li>
+                
+                
+            </ul>
+        </nav>
+        <h3 class="text-muted">Register</h3>
+    </div>
 <!-- REGISTRATION FORM -->
 <div class="text-center" style="padding:50px 0">
 	<div class="logo">register</div>
