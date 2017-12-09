@@ -11,6 +11,15 @@
 	   // echo "Value is: " . $_COOKIE["user"];
 	}
 ?>
+<?php
+
+// current directory
+//echo getcwd() . "\n";
+$path = getcwd();
+list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
+
+//echo "User: $user, path: $root<br />\n";
+?>
 <!DOCTYPE html5>
 <html>
 <head>
@@ -34,8 +43,8 @@
         <nav>
             <ul class="nav nav-pills pull-right">
                 <!--<li role="presentation"><a href="/">Dashboard</a></li>-->
-                 <li role="presentation"><a href="#">Name</a></li>
-                <li role="presentation"><a href="#">Logout</a></li>
+                 <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/reset_password.php" ?>">Reset Password</a></li>
+                <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/logout.php" ?>">Logout</a></li>
                 
                 
             </ul>
