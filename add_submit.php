@@ -17,18 +17,6 @@
 
 </head>
 <body>
-<div class="header clearfix">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <!--<li role="presentation"><a href="/">Dashboard</a></li>-->
-                 <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/reset_password.php" ?>">Reset Password</a></li>
-                <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/logout.php" ?>">Logout</a></li>
-                
-                
-            </ul>
-        </nav>
-        <h3 class="text-muted">All Articles</h3>
-    </div>
 	
 <?php
 session_start();
