@@ -114,7 +114,7 @@
 		{
 			// Dummy AJAX request (Replace this with your AJAX code)
 		  // If you don't want to use AJAX, remove this
-  	  dummy_submit_form($(this));
+  	  forgot_submit_form($(this));
 		
 		  // Cancel the normal submission.
 		  // If you don't want to use AJAX, remove this
@@ -151,6 +151,12 @@
   {
     $form.find('[type=submit]').addClass('error').html(options['btn-error']);
     $form.find('.login-form-main-message').addClass('show error').html('username already exists');
+  }
+
+  function email_err($form)
+  {
+    $form.find('[type=submit]').addClass('error').html(options['btn-error']);
+    $form.find('.login-form-main-message').addClass('show error').html('email does not exist');
   }
 
 	// Dummy Submit Form (Remove this)
@@ -223,6 +229,43 @@
           //alert('user exists!' + data);
         setTimeout(function() {
         form_failed($form);
+      }, 2000);
+      }
+      });
+    }
+  }
+
+  function forgot_submit_form($form)
+  {
+    if($form.valid())
+    {
+      form_loading($form);
+      // Serialize the form data.
+    var formData = $($form).serialize();
+    var loc = window.location.pathname;
+    var dir = loc.substring(0, loc.lastIndexOf('/'));
+    console.log(formData);
+      $.ajax({
+      type: "POST",
+      url: "forgot_submit.php",
+      data: formData,
+      success: function(data){
+      //alert(data);
+      setTimeout(function() {
+        form_success($form);
+      }, 2000);
+      //console.log("Path: " + loc);
+      //console.log("dir: " + dir);
+        //window.location.href = dir + "/index.php";
+        console.log(document.cookie);
+        window.location.href = dir + "/allarticles.php";
+      },
+      error: function (data) {
+       // var msg = '';
+        console.log(data);
+          //alert('user exists!' + data);
+        setTimeout(function() {
+        email_err($form);
       }, 2000);
       }
       });
