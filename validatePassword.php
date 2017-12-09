@@ -36,8 +36,8 @@ function passwordDifferent($username, $password) {
 
 }
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST['reset_username'];
+$password = $_POST['reset_password'];
 
 
 if(passwordDifferent($username, $password)) {
