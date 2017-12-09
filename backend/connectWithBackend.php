@@ -54,11 +54,13 @@
 
 		$articles = $articles->get_result();
 		if($person->num_rows > 0) {
-			return $articles->fetch_assoc();
+			return $articles;
 		}
 
 		$conn->close();
 	}
+
+	// var_dump(getArticlesByUsername('madisonrogers'));
 
 	function addPerson($full_name, $email, $username, $password) {
 
