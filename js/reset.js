@@ -103,10 +103,10 @@
     console.log(formData);
       $.ajax({
       type: "POST",
-      url: "validate_email.php",
+      url: "validate.php",
       data: formData,
       success: function(data){
-      alert(data);
+     // alert(data);
       setTimeout(function() {
         email_exists($form);
       }, 2000);
@@ -119,7 +119,7 @@
       error: function (data) {
        // var msg = '';
         console.log(data);
-          alert('error');
+         // alert('error');
        setTimeout(function() {
         email_err($form);
       }, 2000);
