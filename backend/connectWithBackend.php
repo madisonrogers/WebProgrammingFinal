@@ -148,6 +148,18 @@
 
 		$conn->close();
 	}
+
+	function resetPassword($username, $password) {
+		$conn = Connect();
+		$sql = "UPDATE person SET password = ? WHERE username = ?";
+		$updatePassword = $conn->prepare($sql);
+		$updatePassword->bind_param("ss", $password, $username);
+		$updatePassword->execute();
+
+		if(!$updatePassword) {
+			trigger_error('Invalid query' . $conn->error);
+		}
+	}
 ?>
 
 
