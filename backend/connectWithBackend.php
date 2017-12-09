@@ -188,7 +188,25 @@
 
 		$conn->close();
 	}
-	activateUser("madisonrogers");
+
+	function emailExists($email) {
+		$conn = Connect();
+		$sql = "SELECT * FROM person WHERE email = ?";
+		$emailExists = $conn->prepare($sql);
+		$emailExists->bind_param("s", $email);
+		$emailExists->execute();
+
+		if(!$emailExists) {
+			trigger_error('Invalid query' . $conn->error);
+		}
+
+		$emailExists = $emailExists->get_result();
+		if($emailExists->num_rows > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 ?>
 
 
