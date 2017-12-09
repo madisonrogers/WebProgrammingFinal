@@ -30,7 +30,7 @@
 		{
 			// Dummy AJAX request (Replace this with your AJAX code)
 		  // If you don't want to use AJAX, remove this
-  	  forgot_submit_form($(this));
+  	  reset_submit_form($(this));
 		
 		  // Cancel the normal submission.
 		  // If you don't want to use AJAX, remove this
@@ -106,7 +106,7 @@
       url: "validate_email.php",
       data: formData,
       success: function(data){
-      //alert(data);
+      alert(data);
       setTimeout(function() {
         email_exists($form);
       }, 2000);
@@ -119,7 +119,7 @@
       error: function (data) {
        // var msg = '';
         console.log(data);
-          //alert('user exists!' + data);
+          alert('error');
        setTimeout(function() {
         email_err($form);
       }, 2000);
