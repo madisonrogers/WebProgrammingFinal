@@ -43,21 +43,61 @@
   </tr>
   <tr>
 <?php
-$sqlHost = 'localhost';
-$sqlUser = 'madisonrogers';
-$sqlPass = 'QCKMEQOY';
+// $sqlHost = 'localhost';
+// $sqlUser = 'madisonrogers';
+// $sqlPass = 'QCKMEQOY';
 
-$conn =  new mysqli($sqlHost, $sqlUser, $sqlPass, 'f17_madisonrogers') ;
-if($conn->connect_errno){
-    printf("Connect failed: %s\n", $conn->connect_error);
-    exit();
+// $conn =  new mysqli($sqlHost, $sqlUser, $sqlPass, 'f17_madisonrogers') ;
+// if($conn->connect_errno){
+//     printf("Connect failed: %s\n", $conn->connect_error);
+//     exit();
+// }
+
+// $result = $conn->query("SELECT article_id, username, title, article_text, time_created FROM article, person WHERE fk_person_id = person_id")
+//         or trigger_error($conn->error);	
+
+require "connection.php";
+		
+function getArticlesByUsername($username) {
+		// get the person_id based on the username
+		$conn = Connect();
+		$sql = "SELECT person_id FROM f17_madisonrogers.person WHERE username = ?";
+		$person = $conn->prepare($sql);
+		$person->bind_param("s", $username);
+		$person->execute();
+
+		if(!$person) {
+			trigger_error('Invalid query' . $conn->error);
+		}
+
+		$person = $person->get_result();
+		if($person->num_rows > 0) {
+			$person_id = $person->fetch_assoc()['person_id'];
+		}
+
+		// get all the articles based on the person_id
+		$sql = "SELECT * FROM f17_madisonrogers.article WHERE fk_person_id = ?";
+		$articles = $conn->prepare($sql);
+		$articles->bind_param("i", $person_id);
+		$articles->execute();
+
+		if(!$articles) {
+			trigger_error('Invalid query' . $conn->error);
+		}
+
+		$articles = $articles->get_result();
+		if($person->num_rows > 0) {
+			return $articles;
+		}
+
+		$conn->close();
 }
 
-$result = $conn->query("SELECT article_id, username, title, article_text, time_created FROM article, person WHERE fk_person_id = person_id")
-        or trigger_error($conn->error);	
-		
+$username = $_SESSION['username'];
+$result = getArticlesByUsername($username);
+
 while ($row = $result->fetch_assoc()) {
-		  echo "<td>" . $row["username"] . "</td>";
+		  echo "<td>" . $username . "</td>";
 		  echo "<td>" . $row["title"] . "</td>";
 		  echo '<td><a href="article.php?id=' . $row["article_id"] . '&title=' . $row["title"] . '&text=' . $row["article_text"] . '">Click to read</a></td>';
 		  echo "<td>" . $row["time_created"] . "</td></tr>";
