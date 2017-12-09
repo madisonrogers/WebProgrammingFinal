@@ -82,7 +82,7 @@
 
 		$conn->close();
 
-		$actual_link = "http://$_SERVER[HTTP_HOST]/WebProgrammingFinal/"."activate.php?username=" . $username;
+		$actual_link = "http://$_SERVER[HTTP_HOST]/" . $user . "/WebProgrammingFinal/activate.php?username=" . $username;
 		$toEmail = $email;
 		$subject = "User Registration Activation Email";
 		$content = "Click this link to activate your account. " . $actual_link;
