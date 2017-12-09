@@ -267,7 +267,7 @@
       //console.log("dir: " + dir);
         //window.location.href = dir + "/index.php";
         console.log(document.cookie);
-        window.location.href = dir + "/allarticles.php";
+        window.location.href = dir + "/forgot_submit.php";
       },
       error: function (data) {
        // var msg = '';
