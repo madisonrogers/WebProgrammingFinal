@@ -122,6 +122,41 @@
 		}
   });
 
+  //Reset Password Form
+  //----------------------------------------------
+  //reset
+  $("#reset-form").validate({
+    rules: {
+      reset_username: "required",
+      reset_password: {
+        required: true,
+        minlength: 5
+      },
+      reset_password_confirm: {
+        required: true,
+        minlength: 5,
+        equalTo: "#reset-form [name=reset_password]"
+      }
+    },
+    errorClass: "form-invalid"
+  });
+  
+  // Form Submission
+  $("#reset-form").submit(function() {
+    remove_loading($(this));
+  
+    if(options['useAJAX'] == true)
+    {
+      // Dummy AJAX request (Replace this with your AJAX code)
+      // If you don't want to use AJAX, remove this
+      reset_submit_form($(this));
+    
+      // Cancel the normal submission.
+      // If you don't want to use AJAX, remove this
+        return false;
+    }
+  });
+
 	// Loading
 	//----------------------------------------------
   function remove_loading($form)
@@ -150,7 +185,7 @@
   function activate_email($form)
   {
     $form.find('[type=submit]').addClass('success').html(options['btn-success']);
-    $form.find('.login-form-main-message').addClass('show success').html("Your account has been registered and the activation mail is sent to you email. Click the activation link to activate your account");
+    $form.find('.login-form-main-message').addClass('show success').html("your account has been registered and the activation mail is sent to you email. Click the activation link to activate your account");
   }
 
 
@@ -169,7 +204,19 @@
   function reset_password_sent($form)
   {
     $form.find('[type=submit]').addClass('success').html(options['btn-success']);
-    $form.find('.login-form-main-message').addClass('show success').html("An email has been sent to reset your password.");
+    $form.find('.login-form-main-message').addClass('show success').html("an email has been sent to reset your password.");
+  }
+
+  function reset_success($form)
+  {
+    $form.find('[type=submit]').addClass('success').html(options['btn-success']);
+    $form.find('.login-form-main-message').addClass('show success').html("your password was successfully reset.");
+  }
+
+  function password_exists($form)
+  {
+    $form.find('[type=submit]').addClass('error').html(options['btn-error']);
+    $form.find('.login-form-main-message').addClass('show error').html('new password must be different than old password');
   }
 	// Dummy Submit Form (Remove this)
 	//----------------------------------------------
@@ -282,6 +329,45 @@
           //alert('user exists!' + data);
         setTimeout(function() {
         email_err($form);
+      }, 500);
+      }
+      });
+    }
+  }
+
+  function reset_submit_form($form)
+  {
+    if($form.valid())
+    {
+      form_loading($form);
+      // Serialize the form data.
+    var formData = $($form).serialize();
+    var loc = window.location.pathname;
+    var dir = loc.substring(0, loc.lastIndexOf('/'));
+    console.log(formData);
+      $.ajax({
+      type: "POST",
+      url: "validatePassword.php",
+      data: formData,
+      success: function(data){
+      //alert(data);
+      setTimeout(function() {
+        reset_success($form);
+      }, 2000);
+      //console.log("Path: " + loc);
+      //console.log("dir: " + dir);
+        //window.location.href = dir + "/index.php";
+        //console.log(document.cookie);
+        setTimeout(function(){
+        window.location.href = dir + "/index.php";
+        }, 4000)
+      },
+      error: function (data) {
+       // var msg = '';
+        console.log(data);
+          //alert('user exists!' + data);
+        setTimeout(function() {
+        password_exists($form);
       }, 500);
       }
       });

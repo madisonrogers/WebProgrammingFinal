@@ -48,22 +48,22 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 <div class="text-center" style="padding:50px 0">
 	<div class="logo">Reset Password</div>
 	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="login-form" class="text-left" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-			<div class="login-form-main-message"></div>
+	<div class="reset-form-1">
+		<form id="reset-form" class="text-left" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+			<div class="reset-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
-						<label for="lg_username" class="sr-only">Username</label>
-						<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
+						<label for="reset_username" class="sr-only">Username</label>
+						<input type="text" class="form-control" id="reset_username" name="reset_username" placeholder="username">
 					</div>
 					<div class="form-group">
-						<label for="lg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
+						<label for="reset_password" class="sr-only">Password</label>
+						<input type="password" class="form-control" id="reset_password" name="reset_password" placeholder="password">
 					</div>
 					<div class="form-group">
-						<label for="lg_password" class="sr-only">Re-Enter Password</label>
-						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="re-enter password">
+						<label for="reset_password_confirm" class="sr-only">Re-Enter Password</label>
+						<input type="password" class="form-control" id="reset_password_confirm" name="reset_password_confirm" placeholder="re-enter password">
 					</div>
 					<!--<div class="form-group login-group-checkbox">
 						<input type="checkbox" id="lg_remember" name="lg_remember">
