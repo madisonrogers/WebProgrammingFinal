@@ -188,7 +188,6 @@
 
 		$conn->close();
 	}
-	activateUser("madisonrogers");
 ?>
 
 
