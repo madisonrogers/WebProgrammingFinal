@@ -28,7 +28,18 @@
 
 </head>
 <body>
-
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <!--<li role="presentation"><a href="/">Dashboard</a></li>-->
+                 <li role="presentation"><a href="#">Name</a></li>
+                <li role="presentation"><a href="#">Logout</a></li>
+                
+                
+            </ul>
+        </nav>
+        <h3 class="text-muted">Swaggy Journal Thing</h3>
+    </div>
 <header style="text-align:center">
 <h1>All Articles</h1>
 </header>
