@@ -28,7 +28,10 @@ function addPerson($full_name, $email, $username, $password) {
 
 		$conn->close();
 
-		$actual_link = "http://$_SERVER[HTTP_HOST]/WebProgrammingFinal/"."activate.php?username=" . $username;
+		$path = getcwd();
+		list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
+
+		$actual_link = "http://$_SERVER[HTTP_HOST]/" . $user . "/WebProgrammingFinal/activate.php?username=" . $username;
 		$toEmail = $email;
 		$subject = "User Registration Activation Email";
 		$content = "Click this link to activate your account. " . $actual_link;
