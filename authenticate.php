@@ -65,7 +65,7 @@
 	  var_dump($_SESSION);
 	  
 	  $cookie_name = "user";
-	  setcookie($cookie_name, $_SESSION['username'], $_SESSION['password'], $_SESSION['email'], $_SESSION['fullname'], time() + 60, "/");
+	  setcookie($cookie_name, $_SESSION['username'], time() + 60, "/");
 	}
 
  ?>
