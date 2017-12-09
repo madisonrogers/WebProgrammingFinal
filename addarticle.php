@@ -12,6 +12,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/allarticles.js"></script>
 <script type="text/javascript" src="css/login.css"></script>
+<link rel="stylesheet" type="text/css" href="addentry.css" />
 <link rel="stylesheet" type="text/css" href="css/allarticles.css"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -34,8 +35,8 @@ $newtitle = $newtext = "";
 
 <form action="add_submit.php" method="post">
   <fieldset>
-    Article Title: <input type="text" name="title" value="<?php echo $newtitle;?>" required><br><br>
-	Article Text: <input type="text" name="text" value="<?php echo $newtext;?>" required><br><br>
+    Article Title: <input class="say" type="text" name="title" value="<?php echo $newtitle;?>" required><br><br>
+	Article Text: <input class="say" type="text" name="text" value="<?php echo $newtext;?>" required><br><br>
 	<input type="submit" value="Submit">
 	<input type="reset" value="Reset">
   </fieldset>
