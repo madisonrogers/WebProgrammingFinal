@@ -56,9 +56,12 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 </header>
 <hr>-->
 
+<form action="addarticle.php">
+  <input type="submit" value="Click to submit a new article" />
+</form>
+
 <table class="articlelist">
   <tr>
-	<th>Username</th>
     <th>Article Title</th>
 	<th>Article Text</th>
 	<th>Time Submitted</th>
@@ -111,7 +114,6 @@ function getArticlesByUsername($username) {
 		if($person->num_rows > 0) {
 			return $articles;
 		}
-
 		$conn->close();
 }
 
@@ -119,7 +121,6 @@ $username = $_SESSION['username'];
 $result = getArticlesByUsername($username);
 
 while ($row = $result->fetch_assoc()) {
-		  echo "<td>" . $username . "</td>";
 		  echo "<td>" . $row["title"] . "</td>";
 		  echo '<td><a href="article.php?id=' . $row["article_id"] . '&title=' . $row["title"] . '&text=' . $row["article_text"] . '">Click to read</a></td>';
 		  echo "<td>" . $row["time_created"] . "</td></tr>";
