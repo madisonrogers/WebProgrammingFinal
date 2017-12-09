@@ -17,7 +17,19 @@
 
 </head>
 <body>
-
+<div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <!--<li role="presentation"><a href="/">Dashboard</a></li>-->
+                 <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/reset_password.php" ?>">Reset Password</a></li>
+                <li role="presentation"><a href="<?php echo "/" . $user . "/" . $root . "/logout.php" ?>">Logout</a></li>
+                
+                
+            </ul>
+        </nav>
+        <h3 class="text-muted">All Articles</h3>
+    </div>
+	
 <?php
 session_start();
 require "connection.php";
@@ -67,4 +79,7 @@ $username = $_SESSION['username'];
 $result = addArticle($username, $_POST["title"], $_POST["text"]);
 
 echo "<h1>Your article has been successfully added</h1>";
+header("refresh:2;url=allarticles.php");
 ?>
+
+</body>
