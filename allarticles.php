@@ -4,11 +4,11 @@
 <?php
 	//print_r($_COOKIE);
 	if(!isset($_COOKIE["user"])) {
-	    echo "Cookie named is not set!";
+	  //  echo "Cookie named is not set!";
 	    header("Location: index.php");
 	} else {
 	    //echo "Cookie '" . $cookie_name . "' is set!<br>";
-	    echo "Value is: " . $_COOKIE["user"];
+	   // echo "Value is: " . $_COOKIE["user"];
 	}
 ?>
 <!DOCTYPE html5>
@@ -17,6 +17,8 @@
 	<title>Articles</title>
 	<!-- All the files that are required -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
@@ -38,12 +40,12 @@
                 
             </ul>
         </nav>
-        <h3 class="text-muted">Swaggy Journal Thing</h3>
+        <h3 class="text-muted">All Articles</h3>
     </div>
-<header style="text-align:center">
+<!--<header style="text-align:center">
 <h1>All Articles</h1>
 </header>
-<hr>
+<hr>-->
 
 <table class="articlelist">
   <tr>
