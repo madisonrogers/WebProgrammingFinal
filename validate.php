@@ -28,7 +28,15 @@
 	 $email = $_POST['rs_email'];
 	 
 	  //include $PATH;
-	  emailExists($email);
+
+	 
+	 if(emailExists($email)) {
+			http_response_code(200);
+			return http_response_code();
+		} else {
+			http_response_code(403);
+			return http_response_code();
+		}
 	  $_POST = array();
 
 	  /*$person = getPersonByUsername($username);
