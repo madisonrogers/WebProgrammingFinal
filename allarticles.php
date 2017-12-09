@@ -56,6 +56,10 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 </header>
 <hr>-->
 
+<form action="addarticle.php">
+  <input type="submit" value="Click to submit a new article" />
+</form>
+
 <table class="articlelist">
   <tr>
     <th>Article Title</th>
@@ -110,7 +114,6 @@ function getArticlesByUsername($username) {
 		if($person->num_rows > 0) {
 			return $articles;
 		}
-
 		$conn->close();
 }
 
