@@ -17,7 +17,17 @@
 
 </head>
 <body>
-
+<div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <!--<li role="presentation"><a href="/">Dashboard</a></li>-->
+                 <li role="presentation"><a href="<?php echo "allarticles.php" ?>">Go Back to Articles</a></li>
+                
+                
+            </ul>
+        </nav>
+        <h3 class="text-muted">All Articles</h3>
+    </div>
 <?php
 $newtitle = $newtext = "";
 ?>
@@ -29,3 +39,4 @@ $newtitle = $newtext = "";
 	<input type="submit" value="Submit">
 	<input type="reset" value="Reset">
   </fieldset>
+  </body>

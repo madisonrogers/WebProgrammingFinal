@@ -17,7 +17,7 @@
 
 </head>
 <body>
-
+	
 <?php
 session_start();
 require "connection.php";
@@ -67,4 +67,7 @@ $username = $_SESSION['username'];
 $result = addArticle($username, $_POST["title"], $_POST["text"]);
 
 echo "<h1>Your article has been successfully added</h1>";
+header("refresh:2;url=allarticles.php");
 ?>
+
+</body>
