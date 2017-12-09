@@ -12,7 +12,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/allarticles.js"></script>
 <script type="text/javascript" src="css/login.css"></script>
-<link rel="stylesheet" type="text/css" href="addentry.css" />
+<link rel="stylesheet" type="text/css" href="css/addentry.css" />
 <link rel="stylesheet" type="text/css" href="css/allarticles.css"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 

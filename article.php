@@ -18,7 +18,7 @@
 </head>
 <body>
 <?php
-
+$id = $_GET["id"];
 // current directory
 //echo getcwd() . "\n";
 $path = getcwd();
@@ -37,10 +37,9 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
                 
             </ul>
         </nav>
-        <h3 class="text-muted">Article (insert arcticle number here Bryant) Password</h3>
+        <h3 class="text-muted">Article <?php echo "$id";?></h3>
     </div>
 <?php
-$id = $_GET["id"];
 $title = $_GET["title"];
 $text = $_GET["text"];
 
