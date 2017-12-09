@@ -18,7 +18,7 @@
 
 	function emailExists($email) {
 		$conn = Connect();
-		$sql = "SELECT * FROM person WHERE $email = ?";
+		$sql = "SELECT * FROM person WHERE email = ?";
 		$emailExists = $conn->prepare($sql);
 		$emailExists->bind_param("s", $email);
 		$emailExists->execute();
@@ -28,7 +28,7 @@
 		}
 
 		$emailExists = $emailExists->get_result();
-		if($emailExists->num_rows() > 0) {
+		if($emailExists->num_rows > 0) {
 			return true;
 		} else {
 			return false;

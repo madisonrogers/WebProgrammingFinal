@@ -45,7 +45,7 @@ list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 	<div class="logo">forgot password</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
-		<form id="forgot-password-form" class="text-left">
+		<form id="forgot-password-form" class="text-left" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 			<div class="etc-login-form">
 				<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
 			</div>
