@@ -147,6 +147,13 @@
   	$form.find('.login-form-main-message').addClass('show error').html(options['msg-error']);
   }
 
+  function activate_email($form)
+  {
+    $form.find('[type=submit]').addClass('success').html(options['btn-success']);
+    $form.find('.login-form-main-message').addClass('show success').html("Your account has been registered and the activation mail is sent to you email. Click the activation link to activate your account");
+  }
+
+
   function user_exists_flash($form)
   {
     $form.find('[type=submit]').addClass('error').html(options['btn-error']);
@@ -180,11 +187,13 @@
     	success: function(data){
     	//alert(data);
   		setTimeout(function() {
-  			form_success($form);
+  			activate_email($form);
   		}, 2000);
       //console.log("Path: " + loc);
       //console.log("dir: " + dir);
+      setTimeout(function(){
         window.location.href = dir + "/index.php";
+      }, 5000);
       },
       error: function (data) {
         //var msg = '';
