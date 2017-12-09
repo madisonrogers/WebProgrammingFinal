@@ -70,16 +70,28 @@
 		}
 
 		$conn = Connect();
-		$sql = "INSERT INTO person (full_name, email, username, password) VALUES (?, ?, ?, ?)";
+		$sql = "INSERT INTO person (full_name, email, username, password, active) VALUES (?, ?, ?, ?, ?)";
 		$addPerson = $conn->prepare($sql);
-		$addPerson->bind_param("ssss", $full_name, $email, $username, $password);
+		$active = false;
+		$addPerson->bind_param("ssssb", $full_name, $email, $username, $password, $active);
 		$addPerson->execute();
 
 		if(!$addPerson) {
 			trigger_error('Invalid query' . $conn->error);
-		} 
+		}
 
 		$conn->close();
+
+		$actual_link = "http://$_SERVER[HTTP_HOST]/WebProgrammingFinal/"."activate.php?username=" . $username;
+		$toEmail = $email;
+		$subject = "User Registration Activation Email";
+		$content = "Click this link to activate your account. " . $actual_link;
+		$mailHeaders = "From: Admin\r\n";
+		if(mail($toEmail, $subject, $content, $mailHeaders)) {
+			$message = "You have registered and the activation mail is sent to your email. Click the activation link to activate you account.";	
+		} else {
+			echo "error";
+		}
 	}
 
 	function addArticle($username, $title, $text) {
@@ -159,7 +171,24 @@
 		if(!$updatePassword) {
 			trigger_error('Invalid query' . $conn->error);
 		}
+
+		$conn->close();
 	}
+
+	function activateUser($username) {
+		$conn = Connect();
+		$sql = "UPDATE person SET active = true WHERE username = ?";
+		$activate = $conn->prepare($sql);
+		$activate->bind_param("s", $username);
+		$activate->execute();
+
+		if(!$activate) {
+			trigger_error('Invalid query' . $conn->error);
+		}
+
+		$conn->close();
+	}
+	activateUser("madisonrogers");
 ?>
 
 
