@@ -8,7 +8,7 @@
 	    header("Location: index.php");
 	} else {
 	    //echo "Cookie '" . $cookie_name . "' is set!<br>";
-	   // echo "Value is: " . $_COOKIE["user"];
+	 //  echo "Value is: " . $_COOKIE["user"];
 	}
 ?>
 <?php

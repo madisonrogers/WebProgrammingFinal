@@ -1,6 +1,16 @@
 <?php 
   session_start();
  ?>
+<?php
+	//print_r($_COOKIE);
+	if(!isset($_COOKIE["user"])) {
+	  //  echo "Cookie named is not set!";
+	    header("Location: index.php");
+	} else {
+	    //echo "Cookie '" . $cookie_name . "' is set!<br>";
+	   // echo "Value is: " . $_COOKIE["user"];
+	}
+?>
 <!DOCTYPE html5>
 <html>
 <head>
