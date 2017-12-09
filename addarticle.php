@@ -10,10 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/allarticles.js"></script>
-<script type="text/javascript" src="css/login.css"></script>
 <link rel="stylesheet" type="text/css" href="css/addentry.css" />
-<link rel="stylesheet" type="text/css" href="css/allarticles.css"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 </head>
@@ -35,8 +32,8 @@ $newtitle = $newtext = "";
 
 <form action="add_submit.php" method="post">
   <fieldset>
-    Article Title: <input class="say" type="text" name="title" value="<?php echo $newtitle;?>" required><br><br>
-	Article Text: <input class="say" type="text" name="text" value="<?php echo $newtext;?>" required><br><br>
+    Article Title: <input class="say" type="text" name="title" value="<?php echo $newtitle;?>" placeholder="Enter title here" required><br><br>
+	Article Text: <textarea  rows="10" cols="50" class="say" type="text" name="text" value="<?php echo $newtext;?>" placeholder="Enter text here" required></textarea><br><br>
 	<input type="submit" value="Submit">
 	<input type="reset" value="Reset">
   </fieldset>
