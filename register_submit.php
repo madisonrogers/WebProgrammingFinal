@@ -27,6 +27,17 @@ function addPerson($full_name, $email, $username, $password) {
 		} 
 
 		$conn->close();
+
+		$actual_link = "http://$_SERVER[HTTP_HOST]/WebProgrammingFinal/"."activate.php?username=" . $username;
+		$toEmail = $email;
+		$subject = "User Registration Activation Email";
+		$content = "Click this link to activate your account. " . $actual_link;
+		$mailHeaders = "From: Admin\r\n";
+		if(mail($toEmail, $subject, $content, $mailHeaders)) {
+			$message = "You have registered and the activation mail is sent to your email. Click the activation link to activate you account.";	
+		} else {
+			echo "error";
+		}
 }
 
 function usernameExists($username) {
