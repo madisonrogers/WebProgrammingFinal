@@ -122,7 +122,7 @@
          // alert('error');
        setTimeout(function() {
         email_err($form);
-      }, 2000);
+      }, 500);
       }
       });
     }

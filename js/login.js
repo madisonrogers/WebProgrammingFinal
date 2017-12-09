@@ -166,6 +166,11 @@
     $form.find('.login-form-main-message').addClass('show error').html('email does not exist');
   }
 
+  function reset_password_sent($form)
+  {
+    $form.find('[type=submit]').addClass('success').html(options['btn-success']);
+    $form.find('.login-form-main-message').addClass('show success').html("An email has been sent to reset your password.");
+  }
 	// Dummy Submit Form (Remove this)
 	//----------------------------------------------
 	// This is just a dummy form submission. You should use your AJAX function or remove this function if you are not using AJAX.
@@ -261,13 +266,15 @@
       success: function(data){
       //alert(data);
       setTimeout(function() {
-        form_success($form);
+        reset_password_sent($form);
       }, 2000);
       //console.log("Path: " + loc);
       //console.log("dir: " + dir);
         //window.location.href = dir + "/index.php";
-        console.log(document.cookie);
-        window.location.href = dir + "/forgot_submit.php";
+        //console.log(document.cookie);
+        setTimeout(function(){
+        window.location.href = dir + "/index.php";
+        }, 4000)
       },
       error: function (data) {
        // var msg = '';
@@ -275,7 +282,7 @@
           //alert('user exists!' + data);
         setTimeout(function() {
         email_err($form);
-      }, 2000);
+      }, 500);
       }
       });
     }

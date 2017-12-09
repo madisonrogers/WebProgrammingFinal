@@ -62,8 +62,11 @@
 	  // $_SESSION['fullname'] = $fullname
 	  if(emailExists($email)) {
 	  	sendResetEmail($email);
+	  	http_response_code(200);
+		return http_response_code();
 	  } else {
-	  	echo "The email does not exist.";
+	  	http_response_code(403);
+		return http_response_code();
 	  }
 	  //include $PATH;
 	  
