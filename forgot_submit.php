@@ -39,7 +39,7 @@
 		$path = getcwd();
 		list($one, $two, $three, $four, $user, $root) = split('[/.-]', $path);
 
-		$actual_link = "http://$_SERVER[HTTP_HOST]/" . $user . "/WebProgrammingFinal/reset.php?username=" . $username;
+		$actual_link = "http://$_SERVER[HTTP_HOST]/" . $user . "/WebProgrammingFinal/reset.php";
 		$toEmail = $email;
 		$subject = "Password Reset Email";
 		$content = "Click this link to reset your password. " . $actual_link;
